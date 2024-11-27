@@ -50,7 +50,7 @@ pub fn create_http_server(app_state_reuse: Arc<Mutex<jyframe::AppState>>) {
 /// 请求路由
 async fn resquest_filter(state: Arc<Mutex<jyframe::AppState>>, req: hyper::Request<hyper::body::Incoming>) -> Result<hyper::Response<BoxBody>> {
     let mut res = not_found();
-    let reg_files = regex::Regex::new("^/files/").unwrap();
+    let reg_files = regex::Regex::new(r"^/files/").unwrap();
     if reg_files.is_match(req.uri().path()) {
         logger::info!("访问/files: {}", req.uri().path());
         let state_clone = state.clone();
