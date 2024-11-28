@@ -127,7 +127,7 @@ async fn api_pdf_worker(state: Arc<Mutex<jyframe::AppState>>) -> Result<hyper::R
 }
 /// 测试接口
 async fn api_test(_state: Arc<Mutex<jyframe::AppState>>) -> Result<hyper::Response<BoxBody>> {
-    let test_json = serde_json::json!(chrono::Utc::now().format("%Y/%m/%d %H:%M:%S").to_string());
+    let test_json = serde_json::json!(chrono::Local::now().format("%Y/%m/%d %H:%M:%S").to_string());
     let res = hyper::Response::builder()
         .header(hyper::header::CONTENT_TYPE, "application/json")
         .body(full(test_json.to_string()))
