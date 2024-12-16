@@ -1,2 +1,2 @@
 git pull gitlab main
-Write-Host "ÒÑ´ÓgitlabÔ¶³Ì²Ö¿âÏÂÔØ×îĞÂ´úÂë"
+Write-Host "å·²ä»gitlabè¿œç¨‹ä»“åº“ä¸‹è½½æœ€æ–°ä»£ç "

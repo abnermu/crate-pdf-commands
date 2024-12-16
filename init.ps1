@@ -1,4 +1,4 @@
-# ÅĞ¶ÏÊÇ·ñÒÑ½«Ô­Ê¼µÄÔ¶³Ì²Ö¿âÃûoriginÖØÃüÃûÎªgitlab
+# åˆ¤æ–­æ˜¯å¦å·²å°†åŸå§‹çš„è¿œç¨‹ä»“åº“åoriginé‡å‘½åä¸ºgitlab
 function Is-Origin-Renamed {
     $remotev = git remote -v
     $remotevarr = $remotev -split '\s+'
@@ -10,7 +10,7 @@ function Is-Origin-Renamed {
     return $false
 }
 
-# ÅĞ¶ÏÊÇ·ñÒÑÌí¼ÓgithubÔ¶³Ì²Ö¿â
+# åˆ¤æ–­æ˜¯å¦å·²æ·»åŠ githubè¿œç¨‹ä»“åº“
 function Is-Gitlhub-Added {
     $remotev = git remote -v
     $remotevarr = $remotev -split '\s+'
@@ -24,24 +24,24 @@ function Is-Gitlhub-Added {
 
 $renamed = Is-Origin-Renamed
 if ($renamed) {
-    Write-Host "gitlabÔ¶³Ì²Ö¿âÒÑÖØÃüÃû£¬ÎŞĞëÔÙ´Î²Ù×÷¡£"
+    Write-Host "gitlabè¿œç¨‹ä»“åº“å·²é‡å‘½åï¼Œæ— é¡»å†æ¬¡æ“ä½œã€‚"
 }
 else {
     git remote rename origin gitlab
-    Write-Host "gitlabÔ¶³Ì²Ö¿â£¨origin£©ÒÑÖØÃüÃûÎªgitlab¡£"
+    Write-Host "gitlabè¿œç¨‹ä»“åº“ï¼ˆoriginï¼‰å·²é‡å‘½åä¸ºgitlabã€‚"
 }
 
 $githubadded = Is-Gitlhub-Added
 if ($githubadded) {
-    Write-Host "µ±Ç°gitlab²Ö¿âÒÑÓëgithub²Ö¿â¹ØÁªÍê³É£¬ÎŞĞëÔÙ´Î²Ù×÷¡£"
+    Write-Host "å½“å‰gitlabä»“åº“å·²ä¸githubä»“åº“å…³è”å®Œæˆï¼Œæ— é¡»å†æ¬¡æ“ä½œã€‚"
 }
 else {
     git remote add github https://github.com/abnermu/crate-pdf-commands.git
     git push -u github main
-    Write-Host "gitlabÔ¶³Ì²Ö¿âÒÑ¹ØÁªµ½github²¢½øĞĞÁË³õÊ¼»¯push¡£"
+    Write-Host "gitlabè¿œç¨‹ä»“åº“å·²å…³è”åˆ°githubå¹¶è¿›è¡Œäº†åˆå§‹åŒ–pushã€‚"
 }
 
-# Ö´ĞĞÍâ²¿ÃüÁî£¬Êµ¼ÊÉÏÊÇÆğÁË¸öÃüÁîĞĞÈ¥ÅÜÃüÁî£¬µ«ÕâÀï±ß²»ĞèÒªÕâÃ´×ö
+# æ‰§è¡Œå¤–éƒ¨å‘½ä»¤ï¼Œå®é™…ä¸Šæ˜¯èµ·äº†ä¸ªå‘½ä»¤è¡Œå»è·‘å‘½ä»¤ï¼Œä½†è¿™é‡Œè¾¹ä¸éœ€è¦è¿™ä¹ˆåš
 # $process = Start-Process "git" -ArgumentList "remote", "-v" -PassThru
 # $process.WaitForExit()
-# Write-Host "git remote -v ÃüÁîÖ´ĞĞ½áÊø"
+# Write-Host "git remote -v å‘½ä»¤æ‰§è¡Œç»“æŸ"

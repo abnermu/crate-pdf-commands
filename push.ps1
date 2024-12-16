@@ -1,4 +1,4 @@
 git pull gitlab main
 git push gitlab main
 git push github main
-Write-Host "代码已推送至github和gitlab远程仓库"
+Write-Host "浠ｇ爜宸叉帹閫佽嚦github鍜実itlab杩滅▼浠撳簱"
